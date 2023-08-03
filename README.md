@@ -10,3 +10,6 @@ Building an application layer load balancer that:
 
 Following steps are being followed:
 - Step 1: Build a basic server(load balancer) that can handle one request from the client and then forward it to the backend server. Recieving response from the backend server and then responding back to the client.
+- Step 2: Use multi threading to handle requests from multiple clients.(Single server)
+- Step 2: Distribute incoming requests between 3 backend servers using round robin algorithm.
+- Step 4: 
