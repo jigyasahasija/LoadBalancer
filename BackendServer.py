@@ -28,13 +28,13 @@ def thread_func():
     conn.close()
     print(f"Connection closed with {address}")
 
-HOST = "127.0.0.1"    ##IP address of our server
+HOST = "0.0.0.0"    ##IP address of our server
 PORT= 8000           ##Port number of our server 
 threads = []
 
 bs_obj = socket.socket(socket.AF_INET,socket.SOCK_STREAM)
 bs_obj.bind((HOST,PORT))
-bs_obj.settimeout(30)
+bs_obj.settimeout(120)
 
 try:
     while True:
