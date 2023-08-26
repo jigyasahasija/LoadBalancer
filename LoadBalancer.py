@@ -1,10 +1,12 @@
 import socket
 import time
+import sys
 
 HOST = "127.0.0.1"
 PORT = 1025
 servers = [8000,8001,8002]
 i = 0
+n=sys.argv[1]
 
 lb_obj = socket.socket(socket.AF_INET,socket.SOCK_STREAM)
 lb_obj.bind((HOST,PORT))
@@ -21,7 +23,7 @@ try:
         server_sock.connect(("0.0.0.0", servers[i]))
         server_sock.sendall(client_sock.recv(1024))
         client_sock.sendall(server_sock.recv(1024))
-        i=(i+1)%3
+        i=(i+1)%int(n)
         client_sock.close()
         server_sock.close()
         print(f"Connection closed with {client_addr}")
